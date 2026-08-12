@@ -9,7 +9,6 @@
   --blue-soft: #edf3fc;
   --text: #263247;
   --muted: #65728a;
-  --price: #637696;
   --line: #e4e9f1;
   --page: #fbfaf7;
   --card: #ffffff;
@@ -60,6 +59,7 @@ body {
 }
 
 .webinar-title {
+  min-height: 3.9em;
   margin: 0 0 28px;
   font-size: 1.24rem;
   line-height: 1.3;
@@ -109,8 +109,8 @@ body {
   align-self: center;
   white-space: nowrap;
   font-size: 0.98rem;
-  font-weight: 650;
-  color: var(--price);
+  font-weight: 400;
+  color: var(--blue-dark);
 }
 
 .webinar-button {
@@ -179,6 +179,7 @@ body {
   }
 
   .webinar-title {
+    min-height: 0;
     margin-bottom: 24px;
     font-size: 1.18rem;
   }
