@@ -1,0 +1,66 @@
+name: Deploy e-shop to FTP
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "eshop/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-eshop
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Validate remote directory
+        env:
+          FTP_REMOTE_DIR: ${{ secrets.FTP_REMOTE_DIR }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "$FTP_REMOTE_DIR" ]; then
+            echo "FTP_REMOTE_DIR is not set."
+            exit 1
+          fi
+
+          case "$FTP_REMOTE_DIR" in
+            eshop|eshop/|*/eshop|*/eshop/) ;;
+            *)
+              echo "Safety stop: FTP_REMOTE_DIR must point to a directory named eshop."
+              echo "Current value does not end with /eshop."
+              exit 1
+              ;;
+          esac
+
+      - name: Mirror e-shop to hosting
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_REMOTE_DIR: ${{ secrets.FTP_REMOTE_DIR }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          lftp -u "$FTP_USERNAME","$FTP_PASSWORD" "ftp://$FTP_HOST" <<EOF
+          set cmd:fail-exit yes
+          set ftp:passive-mode true
+          set net:max-retries 2
+          set net:timeout 20
+          mirror --reverse --delete --verbose ./eshop "$FTP_REMOTE_DIR"
+          bye
+          EOF
