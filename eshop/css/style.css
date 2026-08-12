@@ -25,10 +25,78 @@ body {
   background: var(--page);
 }
 
+.site-header {
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.site-header-inner {
+  width: min(1200px, calc(100% - 40px));
+  min-height: 68px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.site-brand {
+  color: var(--ink);
+  font-size: 1.16rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.site-back {
+  color: var(--blue-dark);
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.site-back:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.shop-intro {
+  padding: 46px 0 4px;
+}
+
+.shop-intro-inner {
+  width: min(1200px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.shop-kicker {
+  margin: 0 0 8px;
+  color: var(--blue-dark);
+  font-size: 0.82rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.shop-intro h1 {
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.shop-intro p:not(.shop-kicker) {
+  max-width: 720px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
 .webinars {
   width: min(1200px, calc(100% - 40px));
   margin: 0 auto;
-  padding: 48px 0;
+  padding: 36px 0 48px;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
@@ -176,6 +244,23 @@ body {
 }
 
 @media (max-width: 620px) {
+  .site-header-inner,
+  .shop-intro-inner {
+    width: min(100% - 28px, 560px);
+  }
+
+  .site-header-inner {
+    min-height: 60px;
+  }
+
+  .site-back {
+    font-size: 0.84rem;
+  }
+
+  .shop-intro {
+    padding-top: 32px;
+  }
+
   .webinars {
     width: min(100% - 28px, 560px);
     padding: 28px 0;
