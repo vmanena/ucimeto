@@ -1,1 +1,390 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UčímeTo.cz – přidejte se</title>
+    <style>
+      /*
+        Základní nastavení barev v pastelové paletě.
+        Pastelové tóny jsou jemné a neagresivní, hodí se pro vzdělávací témata.
+      */
+      :root {
+        --bg-color: #f8fafc;
+        --primary-color: #a8d5e2; /* pastelově modrá */
+        --secondary-color: #ffd5cd; /* pastelově korálová */
+        --accent-color: #c8e6c9; /* pastelově zelená */
+        --text-color: #333333;
+        --button-color: #6699cc;
+        --button-hover: #4e7ab1;
+      }
 
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+          Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        color: var(--text-color);
+        background-color: var(--bg-color);
+        line-height: 1.6;
+      }
+
+      header.hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: #1f2937;
+        padding: 4rem 1rem;
+      }
+
+      header.hero h1 {
+        margin: 0;
+        font-size: 2.25rem;
+        line-height: 1.2;
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+
+      header.hero p {
+        margin-top: 1rem;
+        max-width: 700px;
+        font-size: 1.1rem;
+        opacity: 0;
+        animation: fadeInUp 0.8s ease-out 0.2s forwards;
+      }
+
+      /* Společný styl pro všechny sekce s benefity */
+      .benefit {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 2rem 1rem;
+        max-width: 1000px;
+        margin: 0 auto;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease-out forwards;
+        /* jemné zaoblení a stín pro vizuální oddělení sekcí */
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      }
+
+      /* Každá sekce má svůj jemně odlišný podklad */
+      .benefit.teachers {
+        background-color: rgba(168, 213, 226, 0.25);
+      }
+
+      .benefit.parents {
+        background-color: rgba(255, 213, 205, 0.25);
+      }
+
+      .benefit.independence {
+        background-color: rgba(200, 230, 201, 0.25);
+      }
+
+      /* Sekce pro setkávání a akce – jemný pastelově žlutý podklad */
+      .benefit.events {
+        background-color: rgba(255, 243, 205, 0.25);
+      }
+
+      .benefit h2 {
+        margin: 0 0 0.5rem 0;
+        /* adaptivní velikost nadpisů pro různě velké obrazovky */
+        font-size: clamp(1.4rem, 4vw, 1.6rem);
+      }
+
+      .benefit p {
+        margin: 0;
+        font-size: 1rem;
+        max-width: 650px;
+      }
+
+      .benefit .icon {
+        flex-shrink: 0;
+        width: 64px;
+        height: 64px;
+      }
+
+      /* CTA sekce */
+      .cta {
+        text-align: center;
+        padding: 3rem 1rem;
+        background-color: var(--primary-color);
+        color: #1f2937;
+      }
+
+      .cta h2 {
+        margin-top: 0;
+        font-size: 2rem;
+      }
+
+      .cta p {
+        font-size: 1.1rem;
+        margin: 1rem auto 2rem auto;
+        max-width: 600px;
+      }
+
+      .cta .button {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background-color: var(--button-color);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 30px;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+        /* jemný stín pro zvýraznění a kontrast tlačítka */
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .cta .button:hover,
+      .cta .button:focus {
+        background-color: var(--button-hover);
+      }
+
+      /* Animace pro postupné zobrazení elementů */
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsivní úpravy */
+      @media (max-width: 640px) {
+        .benefit {
+          flex-direction: column;
+          text-align: center;
+        }
+        .benefit .icon {
+          margin-bottom: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <h1>UčímeTo.cz – bezpečný prostor pro učitele a rodiče</h1>
+      <p>
+        Podpora, inspirace a sdílení zkušeností pro učitele a rodiče.
+      </p>
+	  <p>
+        Provozuje <a href="https://manena.info" target="_blank" rel="noopener noreferrer">Václav Maněna</a> a další dobrovolníci.
+	  </p>
+    </header>
+
+    <!-- Benefity pro učitele -->
+    <section class="benefit teachers">
+      <div class="icon">
+        <!-- Jednoduchá ikona učitele: kruh jako hlava a obdélník jako tabule -->
+        <svg
+          width="64"
+          height="64"
+          viewBox="0 0 64 64"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label="Ikona učitele"
+        >
+          <title>Ikona učitele</title>
+          <rect
+            x="36"
+            y="12"
+            width="24"
+            height="20"
+            rx="3"
+            fill="var(--button-color)"
+            opacity="0.8"
+          />
+          <rect
+            x="44"
+            y="20"
+            width="12"
+            height="4"
+            fill="#ffffff"
+          />
+          <circle cx="16" cy="18" r="8" fill="var(--button-color)" />
+          <rect x="12" y="28" width="8" height="20" fill="var(--button-color)" />
+        </svg>
+      </div>
+      <div class="content">
+        <h2>Pro učitele</h2>
+        <p>
+          Sdílejte zkušenosti a tipy v bezpečném prostředí, bez závislosti na
+          algoritmech sociálních sítí. Objevte přehledné sekce o technologiích,
+          <a href="https://ucimeto.discourse.group/c/kyberprevence/" target="_blank" rel="noopener noreferrer">kyberbezpečnosti</a>
+          a <a href="https://ucimeto.discourse.group/c/specialni-vzdelavaci-potreby/" target="_blank" rel="noopener noreferrer">speciálních vzdělávacích potřebách</a>, seznam soutěží
+          a materiálů i „<a href="https://ucimeto.discourse.group/c/kpz/" target="_blank" rel="noopener noreferrer">kabinet poslední záchrany</a>“ k podpoře a ventilaci.
+        </p>
+      </div>
+    </section>
+
+    <!-- Benefity pro rodiče -->
+    <section class="benefit parents">
+      <div class="icon">
+        <!-- Ikona rodičů: dvě hlavy a těla -->
+        <svg
+          width="64"
+          height="64"
+          viewBox="0 0 64 64"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label="Ikona rodičů"
+        >
+          <title>Ikona rodičů</title>
+          <!-- rodič 1 -->
+          <circle cx="20" cy="20" r="8" fill="var(--button-color)" />
+          <rect x="16" y="28" width="8" height="20" fill="var(--button-color)" />
+          <!-- rodič 2 -->
+          <circle cx="40" cy="22" r="8" fill="var(--button-color)" opacity="0.8" />
+          <rect x="36" y="30" width="8" height="18" fill="var(--button-color)" opacity="0.8" />
+        </svg>
+      </div>
+      <div class="content">
+        <h2>Pro rodiče</h2>
+        <p>
+          Zeptejte se na cokoli v „<a href="https://rodice.discourse.group/c/rodicovna/" target="_blank" rel="noopener noreferrer">rodičovně</a>“. Zjistíte, kdy dát dítěti
+          první mobil, jak nastavit <a href="https://rodice.discourse.group/c/bezpecnost-deti-v-online-prostoru/" target="_blank" rel="noopener noreferrer">pravidla bezpečného používání technologií</a> a
+          jak na <a href="https://rodice.discourse.group/c/domaci-vzdelavani/" target="_blank" rel="noopener noreferrer">domácí vzdělávání</a>. Vaše otázky nejsou nikdy hloupé. Můžete vystupovat anonymně.
+        </p>
+      </div>
+    </section>
+
+    <!-- Sekce zdůrazňující nezávislost na sociálních sítích -->
+    <section class="benefit independence">
+      <div class="icon">
+        <!-- Ikona nezávislosti: zámek představující bezpečí a nezávislost -->
+        <svg
+          width="64"
+          height="64"
+          viewBox="0 0 64 64"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label="Ikona nezávislosti"
+        >
+          <title>Ikona nezávislosti</title>
+          <rect
+            x="14"
+            y="28"
+            width="36"
+            height="24"
+            rx="4"
+            fill="var(--button-color)"
+            opacity="0.8"
+          />
+          <rect
+            x="24"
+            y="20"
+            width="16"
+            height="12"
+            rx="8"
+            stroke="var(--button-color)"
+            stroke-width="4"
+            fill="none"
+          />
+          <circle
+            cx="32"
+            cy="40"
+            r="4"
+            fill="#ffffff"
+          />
+        </svg>
+      </div>
+      <div class="content">
+        <h2>Nezávislá platforma</h2>
+        <p>
+          Diskuze a příspěvky se neztrácejí ve vlnách algoritmů sociálních sítí.
+          <a href="https://ucimeto.cz" target="_blank" rel="noopener noreferrer">UčímeTo.cz</a> nabízí anonymitu, transparentnost a přehlednost. Vaše data zůstávají v bezpečí.
+        </p>
+      </div>
+    </section>
+
+    <!-- Sekce o setkávání a akcích -->
+    <section class="benefit events">
+      <div class="icon">
+        <!-- Ikona kalendáře: obdélník s proužky symbolizujícími řádky v kalendáři -->
+        <svg
+          width="64"
+          height="64"
+          viewBox="0 0 64 64"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label="Ikona setkání a akcí"
+        >
+          <title>Ikona setkání a akcí</title>
+          <rect
+            x="12"
+            y="14"
+            width="40"
+            height="36"
+            rx="4"
+            fill="var(--button-color)"
+            opacity="0.8"
+          />
+          <!-- horní lišta kalendáře -->
+          <rect
+            x="12"
+            y="22"
+            width="40"
+            height="4"
+            fill="#ffffff"
+          />
+          <!-- řádky kalendáře -->
+          <rect
+            x="20"
+            y="32"
+            width="24"
+            height="4"
+            fill="#ffffff"
+            opacity="0.7"
+          />
+          <rect
+            x="20"
+            y="40"
+            width="20"
+            height="4"
+            fill="#ffffff"
+            opacity="0.5"
+          />
+        </svg>
+      </div>
+      <div class="content">
+        <h2>Setkávání a akce</h2>
+        <p>
+          Připravujeme online i osobní setkání, besedy a vzdělávací akce pro
+          učitele i rodiče. Sledujte náš kalendář a zapojte se do debat,
+          workshopů i neformálních „kaváren“.
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA sekce -->
+    <section class="cta">
+      <h2>Přidejte se k nám</h2>
+      <p>
+        Vytvářejme společně bezpečné místo pro sdílení znalostí a nápadů.
+        Navštivte <a href="https://ucimeto.cz" target="_blank" rel="noopener noreferrer">UčímeTo.cz</a>, založte si klidně anonymní profil a začněte sdílet nebo
+        se jen inspirujte.
+      </p>
+      <a
+        href="https://ucimeto.cz"
+        class="button"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Navštivte UčímeTo.cz</a
+      >
+    </section>
+  </body>
+</html>
