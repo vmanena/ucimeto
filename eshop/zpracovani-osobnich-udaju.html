@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zásady zpracování osobních údajů | UčímeTo.cz</title>
+  <meta name="description" content="Zásady zpracování osobních údajů pro e-shop s webináři na platformě UčímeTo.cz.">
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --surface: #ffffff;
+      --text: #132033;
+      --muted: #5d6b82;
+      --line: #dfe7f1;
+      --brand: #2563eb;
+      --brand-dark: #1d4ed8;
+      --brand-soft: #e8f0ff;
+      --accent: #8b5cf6;
+      --accent-soft: #f0ebff;
+      --success: #0f766e;
+      --success-soft: #e8f8f5;
+      --shadow: 0 18px 45px rgba(19, 32, 51, .08);
+      --radius: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(37, 99, 235, .12), transparent 26rem),
+        radial-gradient(circle at 85% 0%, rgba(139, 92, 246, .14), transparent 24rem),
+        var(--bg);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 28px 0 16px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      text-decoration: none;
+      font-size: 1.12rem;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      color: #fff;
+      box-shadow: 0 12px 25px rgba(37, 99, 235, .22);
+    }
+
+    .back-link {
+      color: var(--muted);
+      font-size: .95rem;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      color: var(--brand);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, .38fr);
+      gap: 24px;
+      align-items: stretch;
+      padding: 38px 0 26px;
+    }
+
+    .hero-main,
+    .summary-card,
+    .terms-card {
+      background: rgba(255, 255, 255, .84);
+      border: 1px solid rgba(223, 231, 241, .9);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero-main {
+      padding: clamp(28px, 5vw, 56px);
+    }
+
+    .summary-card {
+      padding: 26px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--brand-soft);
+      color: var(--brand-dark);
+      font-weight: 700;
+      font-size: .92rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.35rem, 6vw, 4.6rem);
+      line-height: .95;
+      letter-spacing: -.07em;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.08rem, 2vw, 1.25rem);
+    }
+
+    .summary-card h2,
+    .terms-section h2 {
+      margin: 0;
+      letter-spacing: -.04em;
+      line-height: 1.1;
+    }
+
+    .summary-card h2 {
+      font-size: 1.35rem;
+    }
+
+    .summary-list {
+      display: grid;
+      gap: 14px;
+      margin: 20px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .summary-list li {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #f8fbff;
+    }
+
+    .summary-list strong {
+      display: block;
+      font-size: .92rem;
+      color: var(--muted);
+      font-weight: 650;
+    }
+
+    .summary-list span,
+    .summary-list a {
+      display: inline-block;
+      margin-top: 4px;
+      color: var(--text);
+      font-weight: 760;
+      text-decoration: none;
+    }
+
+    .summary-list a:hover {
+      color: var(--brand-dark);
+    }
+
+    .terms-layout {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+      margin-top: 18px;
+    }
+
+    .toc {
+      position: sticky;
+      top: 18px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .78);
+      box-shadow: 0 14px 34px rgba(19, 32, 51, .05);
+    }
+
+    .toc h2 {
+      margin: 0 0 14px;
+      font-size: 1rem;
+      letter-spacing: -.02em;
+    }
+
+    .toc nav {
+      display: grid;
+      gap: 8px;
+    }
+
+    .toc a {
+      display: block;
+      padding: 9px 10px;
+      border-radius: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .94rem;
+      line-height: 1.25;
+    }
+
+    .toc a:hover {
+      background: var(--brand-soft);
+      color: var(--brand-dark);
+    }
+
+    .terms-card {
+      padding: clamp(22px, 4vw, 42px);
+    }
+
+    .terms-section {
+      padding: 0 0 30px;
+      margin: 0 0 30px;
+      border-bottom: 1px solid var(--line);
+      scroll-margin-top: 26px;
+    }
+
+    .terms-section:last-child {
+      padding-bottom: 0;
+      margin-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .terms-section h2 {
+      font-size: clamp(1.35rem, 2vw, 1.75rem);
+      margin-bottom: 14px;
+    }
+
+    .terms-section p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .terms-section ol,
+    .terms-section ul {
+      display: grid;
+      gap: 12px;
+      margin: 0 0 14px;
+      padding-left: 1.25rem;
+    }
+
+    .terms-section li {
+      padding-left: .25rem;
+      color: var(--muted);
+    }
+
+    .terms-section li::marker {
+      color: var(--brand-dark);
+      font-weight: 800;
+    }
+
+    .notice {
+      margin-top: 24px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--success-soft);
+      color: var(--success);
+      font-weight: 700;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin: 44px 0 30px;
+      padding: 22px 0 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .footer a {
+      color: var(--brand-dark);
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .terms-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .toc {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100% - 22px, 1120px);
+      }
+
+      .topbar,
+      .footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero-main,
+      .summary-card,
+      .terms-card,
+      .toc {
+        border-radius: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar" aria-label="Horní navigace">
+      <a class="brand" href="https://ucimeto.cz/" aria-label="UčímeTo.cz">
+        <span class="brand-mark" aria-hidden="true">U</span>
+        <span>UčímeTo.cz</span>
+      </a>
+      <a class="back-link" href="ucimeto-obchod-bez-hromadne-objednavky.html">← Zpět na webináře</a>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-main">
+          <span class="eyebrow">GDPR · ochrana soukromí</span>
+          <h1 id="page-title">Zásady zpracování osobních údajů</h1>
+          <p class="lead">Tento dokument popisuje, jakým způsobem Václav Maněna zpracovává osobní údaje zákazníků při prodeji online webinářů.</p>
+          <div class="notice">Dokument pro jednoduchý e‑shop UčímeTo.cz</div>
+        </div>
+
+        <aside class="summary-card" aria-labelledby="summary-title">
+          <h2 id="summary-title">Základní údaje</h2>
+          <ul class="summary-list">
+            <li><strong>Správce</strong><span>Václav Maněna</span></li>
+            <li><strong>IČO</strong><span>76567761</span></li>
+            <li><strong>Sídlo</strong><span>Rokitanského 63/24, 500 03 Hradec Králové</span></li>
+            <li><strong>Kontakt</strong><a href="mailto:vaclav@manena.info">vaclav@manena.info</a></li>
+          </ul>
+        </aside>
+      </section>
+
+      <div class="terms-layout">
+        <aside class="toc" aria-labelledby="toc-title">
+          <h2 id="toc-title">Obsah</h2>
+          <nav aria-label="Obsah zásad zpracování osobních údajů">
+            <a href="#sekce-1">1 Správce osobních údajů a kontaktní údaje</a>
+            <a href="#sekce-2">2 Jaké osobní údaje zpracováváme</a>
+            <a href="#sekce-3">3 Účel a právní základ zpracování</a>
+            <a href="#sekce-4">4 Doba uchovávání osobních údajů</a>
+            <a href="#sekce-5">5 Příjemci osobních údajů</a>
+            <a href="#sekce-6">6 Zabezpečení osobních údajů</a>
+            <a href="#sekce-7">7 Práva subjektů údajů</a>
+            <a href="#sekce-8">8 Kontakt pro uplatnění práv</a>
+            <a href="#sekce-9">9 Závěrečná ustanovení</a>
+          </nav>
+        </aside>
+
+        <article class="terms-card" aria-label="Zásady zpracování osobních údajů UčímeTo.cz">
+          <section class="terms-section" id="uvod">
+            <p>Tento dokument popisuje, jakým způsobem Václav Maněna (dále jen „správce“) zpracovává osobní údaje svých zákazníků při prodeji online webinářů.</p>
+            <p>Dokument je zpracován v souladu s nařízením Evropského parlamentu a Rady (EU) 2016/679 o ochraně fyzických osob v souvislosti se zpracováním osobních údajů a o volném pohybu těchto údajů (GDPR) a navazující legislativou. Je určen pro jednoduchý e‑shop, který shromažďuje údaje výhradně za účelem vystavení faktur a splnění právních povinností.</p>
+          </section>
+
+          <section class="terms-section" id="sekce-1">
+            <h2>1 Správce osobních údajů a kontaktní údaje</h2>
+            <ul>
+              <li><strong>Správce:</strong> Václav Maněna, IČO: 76567761, se sídlem Rokitanského 63/24, 500 03 Hradec Králové, zapsaný u Živnostenského úřadu v Hradci Králové pod č. j. OŽ/1477/2010/Zaj/1009246/2.</li>
+              <li><strong>E‑mail:</strong> <a href="mailto:vaclav@manena.info">vaclav@manena.info</a>.</li>
+            </ul>
+            <p>Správce je odpovědný za zpracování osobních údajů popsané v tomto dokumentu.</p>
+          </section>
+
+          <section class="terms-section" id="sekce-2">
+            <h2>2 Jaké osobní údaje zpracováváme</h2>
+            <p>Správce zpracovává pouze údaje, které zákazník poskytne při objednávce webináře nebo v rámci komunikace s ním. Jedná se zejména o:</p>
+            <ul>
+              <li>jméno a příjmení,</li>
+              <li>adresu bydliště nebo sídla,</li>
+              <li>identifikační číslo a daňové identifikační číslo (pokud je uvedeno),</li>
+              <li>e‑mailovou adresu,</li>
+              <li>případně telefonní číslo (je‑li uvedeno v objednávce).</li>
+            </ul>
+            <p>Další osobní údaje nejsou shromažďovány; data nebudou využívána k marketingovým účelům, profilování ani k automatizovanému rozhodování.</p>
+          </section>
+
+          <section class="terms-section" id="sekce-3">
+            <h2>3 Účel a právní základ zpracování</h2>
+            <p>Osobní údaje jsou zpracovávány pouze pro následující účely:</p>
+            <ol>
+              <li><strong>Plnění smlouvy</strong> – údaje jsou nezbytné k uzavření a plnění kupní smlouvy (prodeji přístupu k webináři), včetně vystavení daňového dokladu a komunikace se zákazníkem. Právním základem je čl. 6 odst. 1 písm. b) GDPR.</li>
+              <li><strong>Plnění právních povinností</strong> – údaje jsou zpracovávány za účelem splnění zákonných povinností, zejména povinností účetních, daňových a archivačních (např. povinnost uchovávat daňové doklady). Právním základem je čl. 6 odst. 1 písm. c) GDPR.</li>
+            </ol>
+            <p>Správce nezpracovává údaje na základě souhlasu a pro marketingové účely. Pokud by v budoucnu potřeboval využít údaje pro jiný účel, vyžádá si předem souhlas subjektu údajů.</p>
+          </section>
+
+          <section class="terms-section" id="sekce-4">
+            <h2>4 Doba uchovávání osobních údajů</h2>
+            <p>Osobní údaje uchováváme pouze po dobu nezbytnou k naplnění výše uvedených účelů. Konkrétně:</p>
+            <ul>
+              <li>pro účely plnění smlouvy a evidenci faktur: po dobu trvání smluvního vztahu a poté po dobu vyžadovanou účetními a daňovými předpisy (typicky 10 let od vystavení daňového dokladu);</li>
+              <li>po uplynutí této doby jsou osobní údaje anonymizovány nebo bezpečně zlikvidovány.</li>
+            </ul>
+          </section>
+
+          <section class="terms-section" id="sekce-5">
+            <h2>5 Příjemci osobních údajů</h2>
+            <p>Osobní údaje mohou být zpřístupněny nebo předány pouze:</p>
+            <ul>
+              <li>Zpracovatelům, kteří zajišťují účetní, daňové nebo technické služby spojené s provozem e‑shopu (např. poskytovateli účetního softwaru, platební brány nebo webhostingové služby). S těmito subjekty má správce uzavřeny smlouvy o zpracování osobních údajů.</li>
+              <li>Orgánům veřejné moci, pokud to ukládá zákon (např. Finanční úřad).</li>
+            </ul>
+            <p>Správce nemá v úmyslu předávat osobní údaje do třetí země mimo EU ani mezinárodní organizaci.</p>
+          </section>
+
+          <section class="terms-section" id="sekce-6">
+            <h2>6 Zabezpečení osobních údajů</h2>
+            <p>Správce přijal vhodná technická a organizační opatření k ochraně osobních údajů, aby zabránil jejich neoprávněnému nebo náhodnému přístupu, změně, zničení či ztrátě a neoprávněnému přenosu. Opatření zahrnují zejména:</p>
+            <ul>
+              <li>používání zabezpečených hesel a dvoufaktorového ověření k přístupu do systémů,</li>
+              <li>šifrované uložiště a zabezpečené zálohy,</li>
+              <li>omezený přístup k osobním údajům pouze osobám, které údaje nezbytně potřebují pro plnění výše uvedených účelů.</li>
+            </ul>
+          </section>
+
+          <section class="terms-section" id="sekce-7">
+            <h2>7 Práva subjektů údajů</h2>
+            <p>Subjekty osobních údajů mají v souladu s GDPR tato práva:</p>
+            <ol>
+              <li><strong>Právo na přístup</strong> – získat potvrzení, zda a jaké osobní údaje o nich správce zpracovává a získat kopii těchto údajů.</li>
+              <li><strong>Právo na opravu</strong> – požadovat opravu nepřesných nebo doplnění neúplných osobních údajů.</li>
+              <li><strong>Právo na výmaz</strong> – požadovat odstranění osobních údajů, pokud nejsou dále potřebné pro účely, pro které byly shromážděny, nebo pokud jsou zpracovávány protiprávně.</li>
+              <li><strong>Právo na omezení zpracování</strong> – požadovat omezení zpracování osobních údajů (např. pokud je zpochybňována jejich přesnost).</li>
+              <li><strong>Právo na přenositelnost údajů</strong> – získat osobní údaje ve strukturovaném a strojově čitelném formátu a předat je jinému správci.</li>
+              <li><strong>Právo vznést námitku</strong> – vznést námitku proti zpracování osobních údajů, pokud jsou zpracovávány na základě oprávněného zájmu (v našem případě se nevyužívá).</li>
+              <li><strong>Právo podat stížnost</strong> – pokud subjekt údajů usoudí, že zpracování osobních údajů porušuje právní předpisy, může se obrátit na dozorový úřad (Úřad pro ochranu osobních údajů, www.uoou.cz).</li>
+            </ol>
+          </section>
+
+          <section class="terms-section" id="sekce-8">
+            <h2>8 Kontakt pro uplatnění práv</h2>
+            <p>K uplatnění výše uvedených práv se může subjekt údajů obrátit na správce prostřednictvím e‑mailu <a href="mailto:vaclav@manena.info">vaclav@manena.info</a> nebo písemně na adresu uvedenou v oddíle 1.</p>
+            <p>Správce žádosti vyřizuje bez zbytečného odkladu, nejpozději do 30 dnů od jejich obdržení.</p>
+          </section>
+
+          <section class="terms-section" id="sekce-9">
+            <h2>9 Závěrečná ustanovení</h2>
+            <p>Tato zásady zpracování osobních údajů nabývají účinnosti dnem 13. 6. 2026 a mohou být průběžně aktualizovány v souvislosti s změnami zákonných požadavků nebo změnami v činnosti správce.</p>
+            <p>Aktualizované znění bude vždy dostupné na webových stránkách e‑shopu.</p>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div>UčímeTo.cz · místo pro setkávání, sdílení a podporu.</div>
+      <div class="footer-links">
+        <a href="index.html">Zpět na webináře</a>
+        <a href="obchodni-podminky.html">Obchodní podmínky</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Obchodní podmínky | UčímeTo.cz</title>
+  <meta name="description" content="Obchodní podmínky pro prodej digitálního obsahu a webinářů na platformě UčímeTo.cz.">
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --surface: #ffffff;
+      --text: #132033;
+      --muted: #5d6b82;
+      --line: #dfe7f1;
+      --brand: #2563eb;
+      --brand-dark: #1d4ed8;
+      --brand-soft: #e8f0ff;
+      --accent: #8b5cf6;
+      --accent-soft: #f0ebff;
+      --success: #0f766e;
+      --success-soft: #e8f8f5;
+      --shadow: 0 18px 45px rgba(19, 32, 51, .08);
+      --radius: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(37, 99, 235, .12), transparent 26rem),
+        radial-gradient(circle at 85% 0%, rgba(139, 92, 246, .14), transparent 24rem),
+        var(--bg);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 28px 0 16px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      text-decoration: none;
+      font-size: 1.12rem;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      color: #fff;
+      box-shadow: 0 12px 25px rgba(37, 99, 235, .22);
+    }
+
+    .back-link {
+      color: var(--muted);
+      font-size: .95rem;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      color: var(--brand);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, .38fr);
+      gap: 24px;
+      align-items: stretch;
+      padding: 38px 0 26px;
+    }
+
+    .hero-main,
+    .summary-card,
+    .terms-card {
+      background: rgba(255, 255, 255, .84);
+      border: 1px solid rgba(223, 231, 241, .9);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero-main {
+      padding: clamp(28px, 5vw, 56px);
+    }
+
+    .summary-card {
+      padding: 26px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--brand-soft);
+      color: var(--brand-dark);
+      font-weight: 700;
+      font-size: .92rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.35rem, 6vw, 4.6rem);
+      line-height: .95;
+      letter-spacing: -.07em;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.08rem, 2vw, 1.25rem);
+    }
+
+    .summary-card h2,
+    .terms-section h2 {
+      margin: 0;
+      letter-spacing: -.04em;
+      line-height: 1.1;
+    }
+
+    .summary-card h2 {
+      font-size: 1.35rem;
+    }
+
+    .summary-list {
+      display: grid;
+      gap: 14px;
+      margin: 20px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .summary-list li {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #f8fbff;
+    }
+
+    .summary-list strong {
+      display: block;
+      font-size: .92rem;
+      color: var(--muted);
+      font-weight: 650;
+    }
+
+    .summary-list span,
+    .summary-list a {
+      display: inline-block;
+      margin-top: 4px;
+      color: var(--text);
+      font-weight: 760;
+      text-decoration: none;
+    }
+
+    .summary-list a:hover {
+      color: var(--brand-dark);
+    }
+
+    .terms-layout {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 24px;
+      align-items: start;
+      margin-top: 18px;
+    }
+
+    .toc {
+      position: sticky;
+      top: 18px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .78);
+      box-shadow: 0 14px 34px rgba(19, 32, 51, .05);
+    }
+
+    .toc h2 {
+      margin: 0 0 14px;
+      font-size: 1rem;
+      letter-spacing: -.02em;
+    }
+
+    .toc nav {
+      display: grid;
+      gap: 8px;
+    }
+
+    .toc a {
+      display: block;
+      padding: 9px 10px;
+      border-radius: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .94rem;
+      line-height: 1.25;
+    }
+
+    .toc a:hover {
+      background: var(--brand-soft);
+      color: var(--brand-dark);
+    }
+
+    .terms-card {
+      padding: clamp(22px, 4vw, 42px);
+    }
+
+    .terms-section {
+      padding: 0 0 30px;
+      margin: 0 0 30px;
+      border-bottom: 1px solid var(--line);
+      scroll-margin-top: 26px;
+    }
+
+    .terms-section:last-child {
+      padding-bottom: 0;
+      margin-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .terms-section h2 {
+      font-size: clamp(1.35rem, 2vw, 1.75rem);
+      margin-bottom: 14px;
+    }
+
+    .terms-section p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .terms-section ol,
+    .terms-section ul {
+      display: grid;
+      gap: 12px;
+      margin: 0 0 14px;
+      padding-left: 1.25rem;
+    }
+
+    .terms-section li {
+      padding-left: .25rem;
+      color: var(--muted);
+    }
+
+    .terms-section li::marker {
+      color: var(--brand-dark);
+      font-weight: 800;
+    }
+
+    .notice {
+      margin-top: 24px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--success-soft);
+      color: var(--success);
+      font-weight: 700;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin: 44px 0 30px;
+      padding: 22px 0 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .footer a {
+      color: var(--brand-dark);
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .terms-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .toc {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100% - 22px, 1120px);
+      }
+
+      .topbar,
+      .footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero-main,
+      .summary-card,
+      .terms-card,
+      .toc {
+        border-radius: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar" aria-label="Horní navigace">
+      <a class="brand" href="https://ucimeto.cz/" aria-label="UčímeTo.cz">
+        <span class="brand-mark" aria-hidden="true">U</span>
+        <span>UčímeTo.cz</span>
+      </a>
+      <a class="back-link" href="ucimeto-obchod-bez-hromadne-objednavky.html">← Zpět na webináře</a>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-main">
+          <span class="eyebrow">Digitální obsah · webináře</span>
+          <h1 id="page-title">Obchodní podmínky</h1>
+          <p class="lead">Obchodní podmínky, které se týkají prodeje digitálního obsahu na platformě ucimeto.cz.</p>
+          <div class="notice">Účinnost od 13. 6. 2026</div>
+        </div>
+
+        <aside class="summary-card" aria-labelledby="summary-title">
+          <h2 id="summary-title">Základní údaje</h2>
+          <ul class="summary-list">
+            <li><strong>Prodávající</strong><span>Václav Maněna</span></li>
+            <li><strong>IČO</strong><span>76567761</span></li>
+            <li><strong>Sídlo</strong><span>Rokitanského 63/24, 500 03 Hradec Králové</span></li>
+            <li><strong>Kontakt</strong><a href="mailto:vaclav@manena.info">vaclav@manena.info</a></li>
+          </ul>
+        </aside>
+      </section>
+
+      <div class="terms-layout">
+        <aside class="toc" aria-labelledby="toc-title">
+          <h2 id="toc-title">Obsah</h2>
+          <nav aria-label="Obsah obchodních podmínek">
+            <a href="#sekce-1">1 Úvodní ustanovení a definice</a>
+            <a href="#sekce-2">2 Předmět smlouvy a uzavření smlouvy</a>
+            <a href="#sekce-3">3 Cena a způsob platby</a>
+            <a href="#sekce-4">4 Dodání digitálního obsahu</a>
+            <a href="#sekce-5">5 Práva z vadného plnění (reklamace)</a>
+            <a href="#sekce-6">6 Odstoupení od smlouvy a vrácení peněz</a>
+            <a href="#sekce-7">7 Ochrana osobních údajů</a>
+            <a href="#sekce-8">8 Webináře s dobrovolným příspěvkem</a>
+            <a href="#sekce-9">9 Mimosoudní řešení sporů</a>
+            <a href="#sekce-10">10 Závěrečná ustanovení</a>
+          </nav>
+        </aside>
+
+        <article class="terms-card" aria-label="Obchodní podmínky UčímeTo.cz">
+          <section class="terms-section" id="sekce-1">
+          <h2>1 Úvodní ustanovení a definice</h2>
+          <ol>
+          <li>Prodávající: Václav Maněna, se sídlem Rokitanského 63/24, 500 03 Hradec Králové, IČO: 76567761, zapsaný u Živnostenského úřadu v Hradci Králové pod č. j. OŽ/1477/2010/Zaj/1009246/2 (dále jen „prodávající“). Kontaktní e‑mail: vaclav@manena.info.</li>
+          <li>Kupující: fyzická nebo právnická osoba, která prostřednictvím webového rozhraní uzavírá s Prodávajícím smlouvu o poskytování digitálního obsahu (dále jen „kupující“). Pokud kupující zadá při objednávce své IČO, má se za to, že nejedná jako spotřebitel.</li>
+          <li>Webové rozhraní: internetový obchod dostupný na adrese ucimeto.cz/eshop, kde je nabízen přístup k online webinářům (dále jen „webové rozhraní“).</li>
+          <li>Digitální obsah: přístup k živému či předem připravenému webináři nebo záznamu webináře (dále jen „webinář“).</li>
+          </ol>
+          </section>
+
+          <section class="terms-section" id="sekce-2">
+          <h2>2 Předmět smlouvy a uzavření smlouvy</h2>
+          <ol>
+          <li>Prostřednictvím webového rozhraní jsou nabízeny webináře. U každého webináře je uveden jeho název, popis, cena v českých korunách vč. DPH a případné časové omezení přístupu.</li>
+          <li>Zobrazení webináře na webovém rozhraní je pouze informativní a prodávající není povinen uzavřít smlouvu ohledně tohoto webináře. Návrhem na uzavření smlouvy je řádně vyplněná elektronická objednávka odeslaná kupujícím prostřednictvím webového rozhraní. Smlouva je uzavřena okamžikem doručení přijetí objednávky prodávajícím na e‑mail kupujícího.</li>
+          <li>Kupující při odeslání objednávky potvrzuje, že se seznámil s těmito obchodními podmínkami a souhlasí s nimi. Objednávku dokončuje prostřednictvím tlačítka označeného například jako „Objednávka zavazující k platbě“, čímž dává najevo, že souhlasí s uzavřením smlouvy a současně se zavazuje uhradit cenu objednaného webináře.</li>
+          <li>Prodávající zašle kupujícímu potvrzení o uzavření smlouvy (včetně platného znění těchto obchodních podmínek ve formátu umožňujícím jejich uložení) na e‑mailovou adresu uvedenou v objednávce. Kupující tak má vždy k dispozici aktuální znění obchodních podmínek, které byly platné v momentu uzavření smlouvy.</li>
+          </ol>
+          </section>
+
+          <section class="terms-section" id="sekce-3">
+          <h2>3 Cena a způsob platby</h2>
+          <ol>
+          <li>Cena webináře je uvedena na webovém rozhraní v době objednání. Cena je konečná a zahrnuje veškeré daně a poplatky.</li>
+          <li>Kupující může cenu uhradit některou z platebních metod uvedených na webovém rozhraní (platební karta, online bankovní převod nebo jiný platební nástroj). Platba je splatná ihned po odeslání objednávky.</li>
+          <li>Po uhrazení ceny vystaví prodávající kupujícímu daňový doklad (fakturu), který bude zaslán elektronicky na e‑mail kupujícího.</li>
+          </ol>
+          </section>
+
+          <section class="terms-section" id="sekce-4">
+          <h2>4 Dodání digitálního obsahu</h2>
+          <ol>
+          <li>Po přijetí platby poskytne prodávající kupujícímu přístup k webináři. Přístupové informace (např. unikátní odkaz, heslo nebo instrukce ke vstupu do živého přenosu) budou doručeny na e‑mailovou adresu uvedenou v objednávce.</li>
+          <li>U záznamu webináře nebo předem připraveného webináře je přístup poskytnut bez zbytečného odkladu po přijetí platby. U živého webináře bude přístup umožněn v termínu uvedeném u webináře na webovém rozhraní.</li>
+          <li>Kupující je povinen uchovávat přístupové údaje v tajnosti a nesdílet je s třetími osobami.</li>
+          </ol>
+          </section>
+
+          <section class="terms-section" id="sekce-5">
+          <h2>5 Práva z vadného plnění (reklamace)</h2>
+          <ol>
+          <li>Prodávající odpovídá za to, že webinář při poskytnutí odpovídá popisu na Webovém rozhraní a je zpřístupněn v deklarovaném rozsahu a kvalitě.</li>
+          <li>Pokud kupující zjistí, že webinář má vadu (např. nedostupnost obsahu nebo technický problém), je povinen bezodkladně kontaktovat prodávajícího e‑mailem na adrese vaclav@manena.info a popsat vadu. Prodávající v přiměřené době zajistí nápravu (obnovení přístupu, zpřístupnění náhradního termínu).</li>
+          <li>Není‑li vadu možné odstranit, může kupující požadovat přiměřenou slevu z ceny nebo odstoupit od smlouvy, pokud je spotřebitelem.</li>
+          <li>Reklamace a stížnosti lze uplatňovat prostřednictvím e‑mailu na adrese vaclav@manena.info nebo písemně na poštovní adrese prodávajícího uvedené v úvodním ustanovení. Prodávající vyřídí reklamaci či stížnost bez zbytečného odkladu, nejpozději však do 30 dnů ode dne jejího uplatnění, pokud se strany nedohodnou na jiné lhůtě.</li>
+          </ol>
+          </section>
+
+          <section class="terms-section" id="sekce-6">
+          <h2>6 Odstoupení od smlouvy a vrácení peněz</h2>
+          <ol>
+          <li>Právo spotřebitele odstoupit: Je‑li kupující spotřebitelem, má podle § 1829 odst. 1 občanského zákoníku právo odstoupit od smlouvy bez udání důvodu do 14 dnů od jejího uzavření.</li>
+          <li>Výjimka pro digitální obsah: Podle § 1837 písm. l) občanského zákoníku právo na odstoupení nevzniká při poskytování digitálního obsahu, který není dodáván na hmotném nosiči, pokud bylo plnění zahájeno s předchozím výslovným souhlasem spotřebitele před uplynutím lhůty pro odstoupení a spotřebitel byl upozorněn, že tím právo na odstoupení zaniká.</li>
+          <li>Při objednání webináře proto kupující (spotřebitel) dává výslovný souhlas s poskytnutím digitálního obsahu před uplynutím 14denní lhůty. Současně bere na vědomí, že tímto souhlasem ztrácí právo odstoupit od smlouvy.</li>
+          <li>Pokud není výše uvedená výjimka splněna (např. pokud je webinář zpřístupněn až po 14 dnech od uzavření smlouvy a spotřebitel neudělil souhlas s okamžitým poskytnutím), může spotřebitel ve 14denní lhůtě odstoupit tak, že zašle prohlášení o odstoupení na e‑mail Prodávajícího nebo písemně na poštovní adresu prodávajícího uvedenou v úvodním ustanovení. Prodávající vrátí zaplacenou částku do 14 dnů od obdržení odstoupení stejným způsobem, jakým byla platba provedena, pokud se strany nedohodnou jinak.</li>
+          </ol>
+          </section>
+
+          <section class="terms-section" id="sekce-7">
+          <h2>7 Ochrana osobních údajů</h2>
+          <ol>
+          <li>Prodávající jako správce zpracovává osobní údaje kupujících v rozsahu, který je nezbytný pro uzavření a plnění smlouvy – zejména jméno, příjmení, adresa, e‑mail a fakturační údaje.</li>
+          <li>Osobní údaje jsou zpracovávány po dobu nezbytnou k plnění smlouvy a k plnění zákonných povinností (zejména účetních a daňových). Prodávající jeho osobní údaje vymaže nebo anonymizuje, pokud není jejich další uchování nutné k uplatnění práv nebo splnění právních povinností.</li>
+          <li>Další informace o zpracování osobních údajů, o právních základech, době uložení, o předávání třetím osobám a o právech subjektů údajů jsou uvedeny v samostatném dokumentu „Zásady zpracování osobních údajů“, dostupném na webovém rozhraní.</li>
+          </ol>
+          </section>
+
+          <section class="terms-section" id="sekce-8">
+          <h2>8 Webináře s dobrovolným příspěvkem</h2>
+          <p>U některých webinářů je účast poskytována bez stanovené ceny a kupující má po skončení Webináře možnost poskytnout dobrovolný finanční příspěvek (dále jen „příspěvek“). Tento příspěvek není kupní cenou webináře a jeho poskytnutí není povinné. U těchto webinářů se neuplatní ustanovení o ceně a způsobu platby z oddílu 3, ani ustanovení o odstoupení od smlouvy podle oddílu 6; místo toho platí následující podmínky:</p>
+          <ol>
+          <li>Podstata příspěvku: Příspěvek je dar ve smyslu § 2055 a násl. občanského zákoníku. Kupující není povinen Příspěvek poskytnout a jeho výše je čistě dobrovolná; nejedná se o platbu za digitální obsah. Poskytnutím Příspěvku nevzniká Prodávajícímu povinnost poskytnout jakékoli další služby nebo výhody.</li>
+          <li>Vznik darovací smlouvy: Darovací smlouva vzniká připsáním příspěvku na účet prodávajícího. Příspěvek se nepovažuje za zboží ani službu a nepodléhá DPH. Kupující bere na vědomí, že po připsání částky na účet již dar nelze odvolat.</li>
+          <li>Odstoupení a reklamace: Na příspěvek se nevztahují ustanovení o odstoupení od smlouvy nebo reklamaci digitálního obsahu. Příspěvek nelze reklamovat ani jej požadovat zpět; kupující jej poskytuje dobrovolně a bez nároku na vrácení.</li>
+          <li>Doklad o příspěvku: Prodávající vystaví Kupujícímu na přijatý příspěvek potvrzení (příjmový doklad) pro daňové účely a zařadí jej do svého účetnictví.</li>
+          <li>Další podmínky: Ostatní ustanovení těchto obchodních podmínek se na webináře s dobrovolným příspěvkem použijí přiměřeně, pokud z povahy věci nebo z tohoto oddílu nevyplývá něco jiného.</li>
+          </ol>
+          </section>
+
+          <section class="terms-section" id="sekce-9">
+          <h2>9 Mimosoudní řešení sporů</h2>
+          <ol>
+          <li>Pokud je kupující spotřebitelem a vznikne mezi ním a prodávajícím spor ze smlouvy, může kupující podat návrh na mimosoudní řešení sporu u České obchodní inspekce (www.coi.cz), která je pověřeným subjektem pro mimosoudní řešení spotřebitelských sporů.</li>
+          <li>Dozor nad dodržováním povinností dle zákona o ochraně spotřebitele vykonává Česká obchodní inspekce.</li>
+          </ol>
+          </section>
+
+          <section class="terms-section" id="sekce-10">
+          <h2>10 Závěrečná ustanovení</h2>
+          <ol>
+          <li>Tyto obchodní podmínky jsou zobrazeny na webovém rozhraní a mohou být kdykoli z přístupné adresy staženy a archivovány.</li>
+          <li>Prodávající je oprávněn tyto obchodní podmínky jednostranně měnit. Nové znění podmínek je účinné okamžikem zveřejnění na webovém rozhraní; pro již uzavřené smlouvy se uplatní podmínky platné v době uzavření.</li>
+          <li>Tyto obchodní podmínky nabývají účinnosti dnem 13. 6. 2026.</li>
+          </ol>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div>UčímeTo.cz · místo pro setkávání, sdílení a podporu.</div>
+      <div class="footer-links">
+        <a href="index.html">Zpět na webináře</a>
+		<a href="zpracovani-osobnich-udaju.html">Zpracování osobních údajů</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
