@@ -2,15 +2,27 @@
   box-sizing: border-box;
 }
 
+:root {
+  --ink: #0f1b3d;
+  --blue: #0b4aa2;
+  --blue-dark: #073a80;
+  --blue-soft: #eaf1fb;
+  --text: #1f2937;
+  --muted: #667085;
+  --line: #e5e9f0;
+  --page: #faf9f6;
+  --card: #ffffff;
+}
+
 html {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: #1f2933;
-  background: #f6f7f5;
+  color: var(--text);
+  background: var(--page);
 }
 
 body {
   margin: 0;
-  background: #f6f7f5;
+  background: var(--page);
 }
 
 .webinars {
@@ -28,29 +40,30 @@ body {
   flex-direction: column;
   min-width: 0;
   padding: 24px;
-  background: #fff;
-  border: 1px solid #e4e8e3;
+  background: var(--card);
+  border: 1px solid #edf0f5;
   border-radius: 16px;
-  box-shadow: 0 6px 22px rgba(20, 35, 25, 0.07);
+  box-shadow: 0 8px 24px rgba(15, 27, 61, 0.07);
 }
 
 .webinar-date {
   align-self: flex-start;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   padding: 7px 11px;
   border-radius: 999px;
-  background: #e9f5ec;
-  color: #24613a;
+  background: var(--blue-soft);
+  color: var(--blue);
   font-size: 0.9rem;
-  font-weight: 700;
+  font-weight: 750;
   line-height: 1.2;
 }
 
 .webinar-title {
-  margin: 0 0 22px;
-  font-size: 1.3rem;
-  line-height: 1.3;
-  color: #17221b;
+  margin: 0 0 24px;
+  font-size: 1.36rem;
+  line-height: 1.28;
+  color: var(--ink);
+  font-weight: 800;
 }
 
 .webinar-prices {
@@ -58,8 +71,13 @@ body {
 }
 
 .webinar-price {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 16px;
+  row-gap: 3px;
+  align-items: start;
   padding: 14px 0;
-  border-top: 1px solid #edf0ed;
+  border-top: 1px solid var(--line);
 }
 
 .webinar-price:first-child {
@@ -68,45 +86,60 @@ body {
 }
 
 .variant-name {
-  margin-bottom: 4px;
-  font-weight: 700;
+  grid-column: 1;
+  grid-row: 1;
+  margin-bottom: 1px;
+  color: var(--ink);
+  font-weight: 750;
   line-height: 1.35;
 }
 
 .variant-description {
-  margin-bottom: 7px;
-  color: #68736c;
+  grid-column: 1;
+  grid-row: 2;
+  color: var(--muted);
   font-size: 0.92rem;
   line-height: 1.45;
 }
 
 .variant-price {
-  font-size: 1.08rem;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  white-space: nowrap;
+  font-size: 1.04rem;
   font-weight: 800;
-  color: #24613a;
+  color: var(--blue);
 }
 
 .webinar-button {
   display: block;
   margin-top: auto;
-  padding: 13px 16px;
-  border-radius: 10px;
-  background: #2f7a48;
-  color: #fff;
-  font-weight: 700;
+  padding: 12px 16px;
+  border: 1.5px solid var(--blue);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--blue);
+  font-weight: 750;
   line-height: 1.3;
   text-align: center;
   text-decoration: none;
-  transition: transform 0.15s ease, background-color 0.15s ease;
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.webinar-button::before {
+  content: "ⓘ";
+  margin-right: 8px;
 }
 
 .webinar-button:hover {
-  background: #28683d;
+  background: var(--blue-soft);
+  color: var(--blue-dark);
   transform: translateY(-1px);
 }
 
 .webinar-button:focus-visible {
-  outline: 3px solid #9bcbaa;
+  outline: 3px solid #bfd3ef;
   outline-offset: 3px;
 }
 
@@ -127,5 +160,16 @@ body {
   .webinar-card {
     padding: 20px;
     border-radius: 14px;
+  }
+
+  .webinar-price {
+    grid-template-columns: 1fr;
+  }
+
+  .variant-price {
+    grid-column: 1;
+    grid-row: 3;
+    justify-self: start;
+    margin-top: 5px;
   }
 }
