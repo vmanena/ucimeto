@@ -237,6 +237,42 @@ body {
   outline-offset: 3px;
 }
 
+.site-footer {
+  margin-top: 12px;
+  border-top: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.site-footer-inner {
+  width: min(1200px, calc(100% - 40px));
+  min-height: 76px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px 22px;
+}
+
+.footer-links a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--blue-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 @media (max-width: 900px) {
   .webinars {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -245,7 +281,8 @@ body {
 
 @media (max-width: 620px) {
   .site-header-inner,
-  .shop-intro-inner {
+  .shop-intro-inner,
+  .site-footer-inner {
     width: min(100% - 28px, 560px);
   }
 
@@ -288,5 +325,17 @@ body {
     grid-row: 3;
     justify-self: start;
     margin-top: 5px;
+  }
+
+  .site-footer-inner {
+    min-height: 0;
+    padding: 22px 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .footer-links {
+    justify-content: flex-start;
   }
 }
